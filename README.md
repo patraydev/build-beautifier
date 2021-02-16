@@ -115,11 +115,17 @@ BEAUTIFIED:
 | --- | :---: |  :---: | :---: | :---: |
 | initialize app + packages | H | 1hr|  |  |
 | basic structure  | H | 6hrs|  |  |
+| navbar  | H | 3hrs|  |  |
+| about  | H | 2hrs|  |  |
 | contact form | H | 2hrs|  |  |
+| hamburger menu  | H | 3hrs|  |  |
 | read/display airtable | H | 4hrs|  |  |
 | airtable update on form submit | H | 4hr|  |  |
+| airtable put/delete | H | 2hr|  |  |
+| formatted recipes display  | H | 6hrs|  |  |
+| mobile responsiveness/breakpoints  | H | 4hrs|  |  |
 | CSS | H | 6hrs|  |  |
-| Total | H | 23hrs|  |  |
+| Total | H | 43hrs|  |  |
 
 ## SWOT Analysis
 
@@ -133,4 +139,4 @@ I lack exposure to material outside this course.
 I can expose myself to outside material for this project.
 
 ### Threats:
-I have little idea what we will cover in units 3 and 4.
+I have never done a project like this before!
