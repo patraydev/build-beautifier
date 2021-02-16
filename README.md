@@ -10,7 +10,7 @@ This app will provide an opinionated tool for formatting of raw cocktail recipe 
 
 1. Gather/digitize all recipe data
 2. Convert to csv and upload to Airtable 
-3. __Standardize format and build JSON database__  
+3. __Standardize format__  
 4. Use formatted data to implement searchable database
 5. Be able to search for recipes at service speed
 6. Profit
@@ -51,25 +51,21 @@ BEAUTIFIED:
     "name": "Blue Ridge Manhattan",
     "build": [
       {
-       "ingredientNum": 0,
        "amount": 2,
        "unit": "oz",
        "thing": "Rittenhouse Rye"
       },
       {
-       "ingredientNum": 1,
        "amount": .75,
         "unit": "oz",
         "thing": "Carpano Antica Sweet Vermouth
       },
       {
-       "ingredientNum": 2,
        "amount": .5,
        "unit": "oz",
        "thing": "Noilly Pratt Dry Vermouth"
       },
       {
-       "ingredientNum": 3,
        "amount": 2,
        "unit": "dash",
        "thing": "Peychaud’s Bitters"
@@ -87,15 +83,16 @@ BEAUTIFIED:
 
 #### MVP 
 
-- Build navbar, contact, about/home components
-- Condense airtable into single column format
+- Build navbar, contact, about, main components
 - Display airtable and beautiful cocktail template form side-by-side
-- Implement movement from airtable to template form
-- write completed cocktail to JSON with form submit
+- Implement cut/paste movement from airtable to template form
+- Write formatted cocktail to JSON with form submit
+- Show formatted recipes 
 
 #### PostMVP  
 
 - Implement drag/drop functionality from table to form
+- Implement swipe to mobile
 - Log stats of cocktails/menus beautified
 - Create progress dashboard 
 
