@@ -18,7 +18,7 @@ This app will provide an opinionated tool for formatting of raw cocktail recipe 
 
 ## Wireframes
 
-Upload images of your wireframes to an image hosting site or add them to an assets folder in your repo and link them here with a description of each specific wireframe.
+![Wireframes](https://github.com/patraydev/build-beautifier/p2wireframes.jpg)
 
 ## Component Hierarchy
 
