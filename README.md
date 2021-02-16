@@ -18,7 +18,7 @@ This app will provide an opinionated tool for formatting of raw cocktail recipe 
 
 ## Wireframes
 
-![Wireframes](https://github.com/patraydev/build-beautifier/p2wireframes.jpg)
+![Wireframes](https://github.com/patraydev/build-beautifier/blob/main/p2wireframes.jpg)
 
 ## Component Hierarchy
 
