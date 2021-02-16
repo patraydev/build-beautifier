@@ -47,40 +47,40 @@ This drink should taste like a pulled pork sandwich but made with booze.
 
 BEAUTIFIED:
 
-{
-  "name": "Blue Ridge Manhattan",
-  "build": [
     {
-      "ingredientNum": 0,
-      "amount": 2,
-      "unit": "oz",
-      "thing": "Rittenhouse Rye"
-    },
-    {
-      "ingredientNum": 1,
-      "amount": .75,
-      "unit": "oz",
-      "thing": "Carpano Antica Sweet Vermouth
-    },
-    {
-      "ingredientNum": 2,
-      "amount": .5,
-      "unit": "oz",
-      "thing": "Noilly Pratt Dry Vermouth"
-    },
-    {
-      "ingredientNum": 3,
-      "amount": 2,
-      "unit": "dash",
-      "thing": "Peychaud’s Bitters"
-    }
-  ],
-  "glass": "Coupe",
-  "rinse": "Rinse Coupe with Laphroig and Peach Bitters.",
-  "Garnish": "Lemon Pigtail Twist",
-  "method": "Shake.  Strain.  Serve Up."
-  "description": "This drink should taste like a pulled pork sandwich but made with booze.",
-}
+    "name": "Blue Ridge Manhattan",
+    "build": [
+      {
+       "ingredientNum": 0,
+       "amount": 2,
+       "unit": "oz",
+       "thing": "Rittenhouse Rye"
+      },
+      {
+       "ingredientNum": 1,
+       "amount": .75,
+        "unit": "oz",
+        "thing": "Carpano Antica Sweet Vermouth
+      },
+      {
+       "ingredientNum": 2,
+       "amount": .5,
+       "unit": "oz",
+       "thing": "Noilly Pratt Dry Vermouth"
+      },
+      {
+       "ingredientNum": 3,
+       "amount": 2,
+       "unit": "dash",
+       "thing": "Peychaud’s Bitters"
+      }
+    ],
+    "glass": "Coupe",
+    "rinse": "Rinse Coupe with Laphroig and Peach Bitters.",
+    "Garnish": "Lemon Pigtail Twist",
+    "method": "Shake.  Strain.  Serve Up."
+    "description": "This drink should taste like a pulled pork sandwich but made with booze.",
+  }
 
 
 ### MVP/PostMVP
