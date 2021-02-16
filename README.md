@@ -22,7 +22,7 @@ This app will provide an opinionated tool for formatting of raw cocktail recipe 
 
 ## Component Hierarchy
 
-![Component Hierarchy](https://github.com/patraydev/build-beautifier/p2cd.jpg)
+![Component Hierarchy](https://github.com/patraydev/build-beautifier/blob/main/p2cd.jpg)
 
 ## API and Data Sample
 
