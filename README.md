@@ -22,63 +22,118 @@ Upload images of your wireframes to an image hosting site or add them to an asse
 
 ## Component Hierarchy
 
-![Component Hierarchy](./p2cd.jpg)
+![Component Hierarchy](https://github.com/patraydev/build-beautifier/p2cd.jpg)
 
 ## API and Data Sample
 
-Show us a snippet of JSON returned by your Airtable (you can find it under the API documentation) so we know you can access it and get the info you need. This __must__ be properly formatted. An example is below:
+RAW:
+
+Blue Ridge Manhattan
+2 oz	Rittenhouse Rye
+¾ oz	Carpano Antica Sweet Vermouth
+½ oz	Noilly Pratt Dry Vermouth
+2 dash	Peychaud’s Bitters
+
+Rinse
+1 dash	Peach Bitters
+Laphroig
+
+Glass:		Coupe
+Garnish:	Lemon Pigtail Twist
+
+Rinse Coupe with Laphroig and Peach Bitters.  Shake.  Strain.  Serve Up.
+
+This drink should taste like a pulled pork sandwich but made with booze.
+
+BEAUTIFIED:
+
+{
+  "name": "Blue Ridge Manhattan",
+  "build": [
+    {
+      "ingredientNum": 0,
+      "amount": 2,
+      "unit": "oz",
+      "thing": "Rittenhouse Rye"
+    },
+    {
+      "ingredientNum": 1,
+      "amount": .75,
+      "unit": "oz",
+      "thing": "Carpano Antica Sweet Vermouth
+    },
+    {
+      "ingredientNum": 2,
+      "amount": .5,
+      "unit": "oz",
+      "thing": "Noilly Pratt Dry Vermouth"
+    },
+    {
+      "ingredientNum": 3,
+      "amount": 2,
+      "unit": "dash",
+      "thing": "Peychaud’s Bitters"
+    }
+  ],
+  "glass": "Coupe",
+  "rinse": "Rinse Coupe with Laphroig and Peach Bitters.",
+  "Garnish": "Lemon Pigtail Twist",
+  "method": "Shake.  Strain.  Serve Up."
+  "description": "This drink should taste like a pulled pork sandwich but made with booze.",
+}
 
 
 ### MVP/PostMVP
 
-The functionality will then be divided into two separate lists: MVP and PostMVP.  Carefully decide what is placed into your MVP, as the client will expect this functionality to be implemented upon project completion.  
-
 #### MVP 
 
-- Build navbar, contact, about components
+- Build navbar, contact, about/home components
 - Condense airtable into single column format
 - Display airtable and beautiful cocktail template form side-by-side
-- Implement drag/drop movement from airtable to template form
-- Export completed cocktail to JSON 
+- Implement movement from airtable to template form
+- write completed cocktail to JSON with form submit
 
 #### PostMVP  
-*These are examples only. Replace with your own Post-MVP features.*
 
-- Add second API
-- Use local storage to save user favorites
+- Implement drag/drop functionality from table to form
+- Log stats of cocktails/menus beautified
+- Create progress dashboard 
 
 ## Project Schedule
 
-This schedule will be used to keep track of your progress throughout the week and align with our expectations. Here's an example.
 
 |  Day | Deliverable | Status
 |---|---| ---|
-|July 10-12| Prompt / Wireframes / Priority Matrix / Timeframes | Incomplete
-|July 13| Project Approval | Incomplete
-|July 13| Core Application Structure (HTML, CSS, etc.) | Incomplete
-|July 14| Pseudocode / actual code | Incomplete
-|July 15| Initial Clickable Model  | Incomplete
-|July 16| MVP | Incomplete
-|July 17| Presentations | Incomplete
+|Feb 16| Pitch / Greenlight | Incomplete
+|Feb 17| React Structure / Modules / Link to Airtable | Incomplete
+|Feb 18| Core Application Functionality / Basic CSS | Incomplete
+|Feb 19| MVP | Incomplete
+|Feb 20,21,22| Post MVP, Advanced CSS  | Incomplete
+|Feb 23| Presentations | Incomplete
 
 ## Timeframes
 
-Tell us how long you anticipate spending on each area of development. Be sure to consider how many hours a day you plan to be coding and how many days you have available until presentation day.
-
-Time frames are also key in the development cycle.  You have limited time to code all parts of your app.  Your estimates can then be used to evalute possibilities based on time needed and the actual time you have before the app must be submitted. It's always best to pad the time by a few hours so that you account for the unknown so add an additional hour or two to each component to play it safe. Throughout your project, keep track of your Time Invested and Actual Time and update your README regularly.
 
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Adding Form | H | 3hrs| 3.5hrs | 3.5hrs |
-| Working with API | H | 3hrs| 2.5hrs | 2.5hrs |
+| initialize app + packages | H | 1hr|  |  |
+| basic structure  | H | 6hrs|  |  |
+| contact form | H | 2hrs|  |  |
+| read/display airtable | H | 4hrs|  |  |
+| airtable update on form submit | H | 4hr|  |  |
+| CSS | H | 6hrs|  |  |
 | Total | H | 6hrs| 5hrs | 5hrs |
 
 ## SWOT Analysis
 
 ### Strengths:
+I am following the class material relatively well.
 
 ### Weaknesses:
+I lack exposure to material outside this course.
 
 ### Opportunities:
+I can expose myself to outside material for this project.
 
 ### Threats:
+I have little idea what we will cover in units 3 and 4.
