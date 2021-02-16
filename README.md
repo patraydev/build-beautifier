@@ -122,7 +122,7 @@ BEAUTIFIED:
 | read/display airtable | H | 4hrs|  |  |
 | airtable update on form submit | H | 4hr|  |  |
 | CSS | H | 6hrs|  |  |
-| Total | H | 6hrs| 5hrs | 5hrs |
+| Total | H | 23hrs|  |  |
 
 ## SWOT Analysis
 
