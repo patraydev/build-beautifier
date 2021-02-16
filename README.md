@@ -2,17 +2,16 @@
 
 ## Project Name
 
-Cocktail Build Beautifier for Database Standardization
-__CBB__
+Cocktail Build Beautifier
 
 ## Project Description
 
 This app will provide an opinionated tool for formatting of raw cocktail recipe data; step three in the implementation of a searchable cocktail database.
 
-1. Gather all recipe data
-2. Upload to Airtable 
-### 3. Standardize format and compile to JSON database  
-4. Use data to implement searchable database
+1. Gather/digitize all recipe data
+2. Convert to csv and upload to Airtable 
+3. __Standardize format and build JSON database__  
+4. Use formatted data to implement searchable database
 5. Be able to search for recipes at service speed
 6. Profit
 
@@ -34,11 +33,12 @@ Show us a snippet of JSON returned by your Airtable (you can find it under the A
 The functionality will then be divided into two separate lists: MVP and PostMVP.  Carefully decide what is placed into your MVP, as the client will expect this functionality to be implemented upon project completion.  
 
 #### MVP 
-*These are examples only. Replace with your own MVP features.*
 
-- Find and use external api 
-- Render data on page 
-- Allow user to choose favorites 
+- Build navbar, contact, about components
+- Condense airtable into single column format
+- Display airtable and beautiful cocktail template form side-by-side
+- Implement drag/drop movement from airtable to template form
+- Export completed cocktail to JSON 
 
 #### PostMVP  
 *These are examples only. Replace with your own Post-MVP features.*
