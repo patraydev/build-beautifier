@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { baseURL, config } from "../services";
+import { config } from "../services";
 import { useEffect, useState } from "react";
 
 import './CockForm.css'; 
@@ -32,17 +32,19 @@ function CockForm(props) {
     );
   };
 
-  if (props.record.name) {
-    setName(props.record.name);
-    setIngredients(props.record.ingredients);
-    console.log("ingredients in record",props.record.ingredients);
-    setRinse(props.record.rinse);
-    setGlass(props.record.glass);
-    setIce(props.record.ice);
-    setGarnish(props.record.garnish);
-    setMethod(props.record.method);
-    setDescription(props.record.description);
-}
+  useEffect(() => {
+    if (props.record) {
+      setName(props.record.name);
+      setIngredients(props.record.ingredients);
+      console.log("record", props.record);
+      setRinse(props.record.rinse);
+      setGlass(props.record.glass);
+      setIce(props.record.ice);
+      setGarnish(props.record.garnish);
+      setMethod(props.record.method);
+      setDescription(props.record.description);
+    }
+  }, [props.record]);
 
 
   const clearInputs = () => {
@@ -70,15 +72,18 @@ function CockForm(props) {
         description,
       };
       const fields = { JSONstring: JSON.stringify(obj) };
-
-      try {
-        await axios.post(`https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE}/Beautiful`, { fields }, config)
-          .then(clearInputs());
-      } catch (error) {
-        console.log(error);
+      if (!props.editMode) {
+        try {
+          await axios.post(`https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE}/Beautiful`, { fields }, config)
+            .then(clearInputs());
+        } catch (error) {
+          console.log(error);
+        }
+        props.setLast(obj);
+        props.setToggle((tog) => !tog)
+      } else {
+        
       }
-      props.setLast(obj);
-      props.setToggle((tog) => !tog)
     }
   };
 
@@ -93,7 +98,6 @@ function CockForm(props) {
         onChange={(e) => setName(e.target.value)}
           />
         </div>
-        {/* <div className='form-row'> */}
       {/* Soleil's code for ingredients map! Thanks~ */}
       {ingredients.map((ing, index) => (
         <div key={index} className='form-row'>
@@ -106,7 +110,6 @@ function CockForm(props) {
           <button onClick={() => removeIngredient(index)}>-</button>
         </div>
       ))}
-           {/* </div> */}
           <div className='form-row'>
       <button onClick={() => setIngredients((curr) => [...curr, ""])}>
               add ingredient
