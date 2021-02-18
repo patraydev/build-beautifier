@@ -1,5 +1,11 @@
-.App {
+@font-face {
+  font-family: 'Ilisarniq';
+  src: local('Ilisarniq'), url(./fonts/Ilisarniq-Light.otf) format('truetype');
+}
+
+body {
   text-align: center;
+font-family: Ilisarniq !important;
 }
 
 .App-logo {
