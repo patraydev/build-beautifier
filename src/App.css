@@ -8,6 +8,15 @@ body {
 font-family: Ilisarniq !important;
 }
 
+.two-col-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.cock-list > p:hover {
+cursor:pointer;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

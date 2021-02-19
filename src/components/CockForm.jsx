@@ -72,30 +72,56 @@ function CockForm(props) {
         description,
       };
       const fields = { JSONstring: JSON.stringify(obj) };
+
       if (!props.editMode) {
+        //write new cocktail 
         try {
           await axios.post(`https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE}/Beautiful`, { fields }, config)
             .then(clearInputs());
+          console.log('write');
         } catch (error) {
           console.log(error);
         }
         props.setLast(obj);
         props.setToggle((tog) => !tog)
       } else {
-        
+        try {
+          //edit existing
+          const target = props.beautifulDict.find(el => el[0].name === props.record.name)
+          
+          await axios.put(`https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE}/Beautiful/${target[1].id}`, {fields}, config)
+            .then(clearInputs());
+          console.log("edit");
+        } catch (error) {
+          console.log(error);
+        }
+        props.setToggle((tog) => !tog)
       }
     }
   };
 
+  const handleDragOver = (event) => {
+    event.preventDefault();
+  };
+
+  const handleDrop = (event) => {
+    const droppedItem = event.dataTransfer.getData("content");
+    event.target.value = droppedItem;
+    const newEvent = new Event('input', { bubbles: true });
+    console.log(newEvent);
+    event.target.dispatchEvent(newEvent);
+}
+
+
   return (
-    <div className='form-container'>
+    <div className='form-container' onDragOver={handleDragOver} onDrop={ handleDrop}>
       <form onSubmit={handleSubmit}>
         <div className='form-row'>
       <label>Name:</label>
       <input
         type="text"
         value={name}
-        onChange={(e) => setName(e.target.value)}
+        onInput={(e) => setName(e.target.value)}
           />
         </div>
       {/* Soleil's code for ingredients map! Thanks~ */}
@@ -105,13 +131,13 @@ function CockForm(props) {
           <input
             type="text"
             value={ing}
-            onChange={(e) => modifyIngredient(e, index)}
+            onInput={(e) => modifyIngredient(e, index)}
           />
-          <button onClick={() => removeIngredient(index)}>-</button>
+          <button type='button' onClick={() => removeIngredient(index)}>-</button>
         </div>
       ))}
           <div className='form-row'>
-      <button onClick={() => setIngredients((curr) => [...curr, ""])}>
+      <button type="button" onClick={() => setIngredients((curr) => [...curr, ""])}>
               add ingredient
       </button>
       </div>
@@ -120,7 +146,7 @@ function CockForm(props) {
       <input
         type="text"
         value={rinse}
-        onChange={(e) => setRinse(e.target.value)}
+        onInput={(e) => setRinse(e.target.value)}
           />
           </div>
           <div className='form-row'>
@@ -128,19 +154,19 @@ function CockForm(props) {
       <input
         type="text"
         value={glass}
-        onChange={(e) => setGlass(e.target.value)}
+        onInput={(e) => setGlass(e.target.value)}
             />
             </div>
           <div className='form-row'>
       <label>Ice:</label>
-            <input type="text" value={ice} onChange={(e) => setIce(e.target.value)} />
+            <input type="text" value={ice} onInput={(e) => setIce(e.target.value)} />
             </div>
           <div className='form-row'>
       <label>Garnish:</label>
       <input
         type="text"
         value={garnish}
-        onChange={(e) => setGarnish(e.target.value)}
+        onInput={(e) => setGarnish(e.target.value)}
             />
             </div>
           <div className='form-row'>
@@ -148,7 +174,7 @@ function CockForm(props) {
       <textarea
         type="textarea"
         value={method}
-        onChange={(e) => setMethod(e.target.value)}
+        onInput={(e) => setMethod(e.target.value)}
             />
         </div>
         <div className='form-row'>
@@ -156,11 +182,11 @@ function CockForm(props) {
       <textarea
             type="textarea"
         value={description}
-        onChange={(e) => setDescription(e.target.value)}
+        onInput={(e) => setDescription(e.target.value)}
             />
             </div>
           <div className='form-row'>
-            <button type="submit">write</button>
+          <button type="submit">{props.editMode ? 'edit' : 'write'}</button>
             </div>
       </form>
       </div>

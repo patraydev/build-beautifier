@@ -15,7 +15,7 @@ useEffect(() => {
   return (
     <div>
   <Navbar bg="dark" variant='dark'>
-  <Navbar.Brand href="#home">
+  <Navbar.Brand as={Link} to='/home'>
       <img
         alt="super cool logo"
         src={logo}
@@ -23,7 +23,7 @@ useEffect(() => {
         height="40"
         className="d-inline-block align-top"
       />{' '}
-      Cocktail Build Beautifier
+      ᐃᒥᕋᓚᕝᕕᒃ ᑲᔾᔮᕐᓇᖅᑐᖅ
     </Navbar.Brand>
   <Navbar.Collapse id="basic-navbar-nav">
     <Nav className="ml-auto">
