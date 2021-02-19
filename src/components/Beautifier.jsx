@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+
 
 import CockForm from "./CockForm";
 
@@ -15,29 +15,12 @@ function Beautifier(props) {
     event.preventDefault();
   };
 
-  // onDrop = (event, cat) => {
-  //   let taskName = event.dataTransfer.getData("taskName");
-
-  //   let tasks = this.state.tasks.filter((task) => {
-  //     if (task.taskName == taskName) {
-  //       task.type = cat;
-  //     }
-  //     return task;
-  //   });
-
-  //   this.setState({
-  //     ...this.state,
-  //     tasks,
-  //   });
-  // };
-
   return (
-    <Container fluid>
-      <Row>
-        <Col>
+    <div className='two-col-container'>
+        <div className='col'>
           <CockForm setLast={setLast} setToggle={props.setToggle} />
-        </Col>
-        <Col>
+        </div>
+        <div className='col'>
           <div className="cock-list">
             <h1>{last.name ? `Last Added: ${last.name}` : ""}</h1>
             {props.raw.map((obj) => (
@@ -51,9 +34,8 @@ function Beautifier(props) {
               </p>
             ))}
           </div>
-        </Col>
-      </Row>
-    </Container>
+        </div>
+      </div>
   );
 }
 
