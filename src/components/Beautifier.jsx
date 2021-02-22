@@ -4,11 +4,13 @@ import { useState } from "react";
 import CockForm from "./CockForm";
 
 function Beautifier(props) {
-  const [last, setLast] = useState({ hi: "hi" });
+  const [last, setLast] = useState({});
+  const [dragged, setDragged] = useState([]);
 
   const handleDragStart = (event,content) => {
     event.dataTransfer.setData("content", content);
-    console.log("dragstart on : ", event,content);
+    event.target.style.color = 'white';
+    setDragged(curr => [...curr, event.target]);
   };
 
   const handleDragOver = (event) => {
@@ -18,7 +20,7 @@ function Beautifier(props) {
   return (
     <div className='two-col-container'>
         <div className='col'>
-          <CockForm setLast={setLast} setToggle={props.setToggle} />
+        <CockForm setLast={setLast} setToggle={props.setToggle} dragged={dragged} setDragged={ setDragged}/>
         </div>
         <div className='col'>
           <div className="cock-list">
@@ -33,6 +35,7 @@ function Beautifier(props) {
                 {obj.fields[props.table] ? obj.fields[props.table] : " "}
               </p>
             ))}
+          {/* <button onClick={getMore}>more</button> */}
           </div>
         </div>
       </div>

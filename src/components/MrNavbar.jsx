@@ -23,7 +23,7 @@ useEffect(() => {
         height="40"
         className="d-inline-block align-top"
       />{' '}
-      ᐃᒥᕋᓚᕝᕕᒃ ᑲᔾᔮᕐᓇᖅᑐᖅ
+      cocktail build beautifier
     </Navbar.Brand>
   <Navbar.Collapse id="basic-navbar-nav">
     <Nav className="ml-auto">

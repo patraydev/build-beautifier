@@ -1,11 +1,11 @@
 .form-container {
   display:flex;
   flex-direction: column;
-  position:fixed;
+  /* position:fixed;
   left: 0;
   right: 50vw;
   top:4em;
-  max-height: 100vh;
+  max-height: 100vh; */
 }
 
 .form-row {
@@ -21,6 +21,7 @@
 }
 
 .form-row > input, textarea {
+  opacity: .55;
   flex-grow: 6;
 }
 

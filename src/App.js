@@ -1,12 +1,15 @@
 import axios from "axios";
 
-import { Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { config } from "./services";
+import { Route, Switch } from 'react-router-dom';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
+
 
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './fonts/Ilisarniq-Light.otf'
+
+import { config } from "./services";
 
 import MrNavbar from './components/MrNavbar.jsx';
 import About from './components/About.jsx';
@@ -15,6 +18,7 @@ import Contact from './components/Contact.jsx';
 import Progress from './components/Progress.jsx';
 import Edit from './components/Edit';
 import Home from './components/Home.jsx';
+import Splash from './components/Splash.jsx';
 
 
 function App() {
@@ -22,8 +26,8 @@ function App() {
   const [beautiful, setBeautiful] = useState([]);
   const [beautifulDict, setBeautifulDict] = useState([]);
   const [record, setRecord] = useState(false);
-  const [activeTable, setActiveTable] = useState('Summer 2007');
-  const [tables, setTables] = useState(['Summer 2007', 'Winter 2008']);
+  const [activeTable, setActiveTable] = useState('Spring 2016');
+  const [tables, setTables] = useState(['Spring 2016', 'Winter 2008']);
   const [toggle, setToggle] = useState(false);
 
   //get raw menu data on page mount
@@ -58,8 +62,17 @@ function App() {
   }, [beautiful]);
   
   return (
-    <div className="switch">
+    <div className='App'>
       <MrNavbar />
+      <Route render={({location})=> (
+        <TransitionGroup>
+          <CSSTransition key={location.key} timeout={500} classNames='fade'>
+            <Switch location={location}>
+              {/* <Route exact path='/'> */}
+              {/* </Route> */}
+              <Route exact path='/'>
+                <Splash />
+                </Route>
       <Route path='/home'>
         <Home tables={tables} setActiveTable={setActiveTable} record={record}/>
       </Route>
@@ -76,10 +89,13 @@ function App() {
         <Edit record={record} beautifulDict={beautifulDict} setRecord={setRecord} setToggle={ setToggle}/>
       </Route>
       <Route path='/beatuifier'>
-        <Beautifier raw={raw} table={activeTable} setToggle={setToggle}/>
-      </Route>
-
-    </div>
+        <Beautifier raw={raw} table={activeTable} setToggle={setToggle} />
+        </Route>
+        </Switch>
+        </CSSTransition>
+      </TransitionGroup>
+      )} />
+      </div>
   );
 }
 

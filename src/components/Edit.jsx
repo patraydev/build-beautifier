@@ -1,6 +1,3 @@
-
-
-import { Container, Row, Col } from "react-bootstrap";
 import CockForm from './CockForm'; 
 
 function Edit(props) {
@@ -14,12 +11,12 @@ function Edit(props) {
 
 
   return (
-    <Container fluid>
-    <Row>
-      <Col>
+    <div className='container'>
+    <div className='row'>
+      <div className='col'>
           <CockForm record={props.record} editMode={true} beautifulDict={props.beautifulDict} setToggle={props.setToggle}/>
-      </Col>
-        <Col>
+      </div>
+        <div className='col'>
           <div className="cock-list">
             {/* search bar might be nice here */}
         <h1>Last Updated</h1>
@@ -27,9 +24,9 @@ function Edit(props) {
           <p key={obj[0].name} onClick={handleClick}>{obj[0].name}</p>
         ))}
       </div>
-      </Col>
-    </Row>
-  </Container>
+      </div>
+    </div>
+  </div>
     
     
     

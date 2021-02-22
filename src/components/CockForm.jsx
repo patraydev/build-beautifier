@@ -6,7 +6,9 @@ import './CockForm.css';
 
 function CockForm(props) {
   const [name, setName] = useState("");
-  const [ingredients, setIngredients] = useState(["","",""]);
+  const [author, setAuthor] = useState("");
+  const [ingredients, setIngredients] = useState(["", "", ""]);
+  const [bottom, setBottom] = useState("");
   const [rinse, setRinse] = useState("");
   const [glass, setGlass] = useState("");
   const [ice, setIce] = useState("");
@@ -35,8 +37,9 @@ function CockForm(props) {
   useEffect(() => {
     if (props.record) {
       setName(props.record.name);
+      setAuthor(props.record.author);
       setIngredients(props.record.ingredients);
-      console.log("record", props.record);
+      setBottom(props.record.bottom);
       setRinse(props.record.rinse);
       setGlass(props.record.glass);
       setIce(props.record.ice);
@@ -49,7 +52,9 @@ function CockForm(props) {
 
   const clearInputs = () => {
     setName('');
-    setIngredients(['', '', ''])
+    setAuthor('');
+    setIngredients(['', '', '']);
+    setBottom('');
     setRinse('');
     setGlass('');
     setIce('');
@@ -63,7 +68,9 @@ function CockForm(props) {
     if (name) {
       const obj = {
         name,
+        author,
         ingredients,
+        bottom,
         rinse,
         glass,
         ice,
@@ -74,16 +81,19 @@ function CockForm(props) {
       const fields = { JSONstring: JSON.stringify(obj) };
 
       if (!props.editMode) {
-        //write new cocktail 
+        //write new cocktail & disappear dropped lines
         try {
           await axios.post(`https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE}/Beautiful`, { fields }, config)
             .then(clearInputs());
-          console.log('write');
         } catch (error) {
           console.log(error);
         }
         props.setLast(obj);
-        props.setToggle((tog) => !tog)
+        props.setToggle((tog) => !tog);
+        props.dragged.forEach((el) => el.style.display = 'none');
+        props.setDragged([]);
+
+
       } else {
         try {
           //edit existing
@@ -91,7 +101,6 @@ function CockForm(props) {
           
           await axios.put(`https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE}/Beautiful/${target[1].id}`, {fields}, config)
             .then(clearInputs());
-          console.log("edit");
         } catch (error) {
           console.log(error);
         }
@@ -108,7 +117,6 @@ function CockForm(props) {
     const droppedItem = event.dataTransfer.getData("content");
     event.target.value = droppedItem;
     const newEvent = new Event('input', { bubbles: true });
-    console.log(newEvent);
     event.target.dispatchEvent(newEvent);
 }
 
@@ -122,6 +130,14 @@ function CockForm(props) {
         type="text"
         value={name}
         onInput={(e) => setName(e.target.value)}
+          />
+        </div>
+        <div className='form-row'>
+      <label>Author:</label>
+      <input
+        type="text"
+        value={author}
+        onInput={(e) => setAuthor(e.target.value)}
           />
         </div>
       {/* Soleil's code for ingredients map! Thanks~ */}
@@ -140,7 +156,15 @@ function CockForm(props) {
       <button type="button" onClick={() => setIngredients((curr) => [...curr, ""])}>
               add ingredient
       </button>
-      </div>
+        </div>
+        <div className='form-row'>
+      <label>Bottom:</label>
+      <input
+        type="text"
+        value={bottom}
+        onInput={(e) => setBottom(e.target.value)}
+          />
+          </div>
       <div className='form-row'>
       <label>Rinse:</label>
       <input
