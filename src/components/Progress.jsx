@@ -14,14 +14,14 @@ function Progress(props) {
     return (
       <div className="two-col-container" style={{textAlign:'center'}}>
         <div className="cock-list">
-          <h2>latest beautified:</h2>
+          <h2>beautified:</h2>
           {props.beautifulDict.map((obj) => (
             <p style={{fontSize:'2em',fontWeight:'2em'}} key={obj[1].id} onClick={handleClick}>{obj[0].name ? obj[0].name : " "}</p>
           ))}
         </div>
         <div>
         <h2>builds beautified:</h2>
-          <div style={{fontSize:'7em'}}>{props.beautifulDict.length}</div>
+          <div style={{fontSize:'13em'}}>{props.beautifulDict.length}</div>
           </div>
       </div>
     );

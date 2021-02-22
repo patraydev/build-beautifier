@@ -21,7 +21,7 @@ function Home(props) {
       <div className='build-display'>
         <h3>last beautified:</h3>
         {props.record ? Object.keys(props.record).map((key, index) => (
-          <p key={index}>{key === 'ingredients' ? props.record[key].map((ing) => (<p>{ing}</p>) ) :
+          <p key={index}>{key === 'ingredients' ? props.record[key].map((ing) => (<p key={ing}>{ing}</p>) ) :
              props.record[key] }</p>
         ))
         

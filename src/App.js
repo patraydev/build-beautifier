@@ -37,6 +37,7 @@ function App() {
       setRaw(res.data.records);
     };
     getRaw();
+
     console.log('raw',raw);
   }, [activeTable]);
 
@@ -53,9 +54,10 @@ function App() {
  //create dict of JSON objects and beautiful table objects
   useEffect(() => {
     if (beautiful.length !== 0) {
-      const beautifulObjects = [...beautiful].sort((a, b) => b.createdTime - a.createdTime)
+      const beautifulObjects = [...beautiful].sort((a, b) => a.createdTime - b.createdTime);
       console.log('beautifulobjects', beautifulObjects);
-      setRecord(JSON.parse(beautifulObjects[0].fields.JSONstring));
+      setRecord(JSON.parse(beautifulObjects[beautiful.length-1].fields.JSONstring));
+      console.log(record);
       setBeautifulDict(beautifulObjects.map((obj) => [JSON.parse(obj.fields.JSONstring), obj]));
       console.log('beautifulDict', beautifulDict);
     }
@@ -68,8 +70,6 @@ function App() {
         <TransitionGroup>
           <CSSTransition key={location.key} timeout={500} classNames='fade'>
             <Switch location={location}>
-              {/* <Route exact path='/'> */}
-              {/* </Route> */}
               <Route exact path='/'>
                 <Splash />
                 </Route>
@@ -89,7 +89,7 @@ function App() {
         <Edit record={record} beautifulDict={beautifulDict} setRecord={setRecord} setToggle={ setToggle}/>
       </Route>
       <Route path='/beatuifier'>
-        <Beautifier raw={raw} table={activeTable} setToggle={setToggle} />
+                <Beautifier raw={raw} table={activeTable} setToggle={setToggle} record={record}/>
         </Route>
         </Switch>
         </CSSTransition>

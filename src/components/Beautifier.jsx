@@ -32,19 +32,22 @@ function Beautifier(props) {
         <div className='col'>
           <div className="cock-list">
           <div className='top'>
-          <h1>{last.name ? `Last Added: ${last.name}` : ""}</h1>
-            <img className='trash' src={trash} alt='windows XP style trash can' onDrop={handleDrop} onDragOver={ handleDragOver}/>
+            <span style={{ fontSize: '1.8em', padding: '8px' }}>Last Beautified:{props.record ? ` ${props.record.name}` : 'ᐃᓕᐅᖅᑲᐃᓂᖅ...'}</span> 
+            {/* {last.name ? ` ${last.name}` : ""}*/}
+            <img className='trash' style={{maxWidth:'64px',maxHeight:'64px',position:"fixed",bottom:'5px',right:'5px'}} src={trash} alt='windows XP style trash can' onDrop={handleDrop} onDragOver={handleDragOver}/>
           </div>
-            {props.raw.map((obj) => (
+      
+          {props.raw.map((obj) => (
+            obj.fields[props.table] ?
               <p
                 key={obj.id}
                 onDragStart={(e) => handleDragStart(e, obj.fields[props.table])}
                 onDragOver={handleDragOver}
                 draggable
               >
-                {obj.fields[props.table] ? obj.fields[props.table] : " "}
-              </p>
-            ))}
+                {obj.fields[props.table] !== '' ? obj.fields[props.table] : null}
+              </p> : null)
+          )}
           {/* <button onClick={getMore}>more</button> */}
           </div>
         </div>
