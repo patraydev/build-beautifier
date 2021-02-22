@@ -12,14 +12,17 @@ function Progress(props) {
 
   if (props.beautifulDict.length !== 0) {
     return (
-      <div className="two-col-container">
+      <div className="two-col-container" style={{textAlign:'center'}}>
         <div className="cock-list">
-          <h2>latest beautified</h2>
-          <h3>click to edit</h3>
+          <h2>latest beautified:</h2>
           {props.beautifulDict.map((obj) => (
-            <p key={obj[1].id} onClick={handleClick}>{obj[0].name ? obj[0].name : " "}</p>
+            <p style={{fontSize:'2em',fontWeight:'2em'}} key={obj[1].id} onClick={handleClick}>{obj[0].name ? obj[0].name : " "}</p>
           ))}
         </div>
+        <div>
+        <h2>builds beautified:</h2>
+          <div style={{fontSize:'7em'}}>{props.beautifulDict.length}</div>
+          </div>
       </div>
     );
   } else return (<h2>ᐃᓕᐅᖅᑲᐃᓂᖅ...</h2>);

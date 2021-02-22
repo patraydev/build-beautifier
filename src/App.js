@@ -26,7 +26,7 @@ function App() {
   const [beautiful, setBeautiful] = useState([]);
   const [beautifulDict, setBeautifulDict] = useState([]);
   const [record, setRecord] = useState(false);
-  const [activeTable, setActiveTable] = useState('Spring 2016');
+  const [activeTable, setActiveTable] = useState('Winter 2008');
   const [tables, setTables] = useState(['Spring 2016', 'Winter 2008']);
   const [toggle, setToggle] = useState(false);
 

@@ -17,16 +17,18 @@ function Edit(props) {
           <CockForm record={props.record} editMode={true} beautifulDict={props.beautifulDict} setToggle={props.setToggle}/>
       </div>
         <div className='col'>
-          <div className="cock-list">
+          <div className="build-display">
             {/* search bar might be nice here */}
-        <h1>Last Updated</h1>
-        {props.beautifulDict.map((obj) => (
-          <p key={obj[0].name} onClick={handleClick}>{obj[0].name}</p>
-        ))}
+            {props.record ? Object.keys(props.record).map((key, index) => (
+          <p key={index}>{key === 'ingredients' ? props.record[key].map((ing) => (<p>{ing}</p>) ) :
+          props.record[key] }</p>
+        ))
+        
+        : 'ᕋᐃᔭᓐ ᕙᓛᓇᒐᓐ ᐅᓪᓗᒥ ᐃᓕᖅᑯᓯᕆᖕᒪᒍ, ᓴᓇᔨᓪᓚᕆᐊᓗᒃ ᓂᕆᑎᑦᑎᔪᓐᓇᖅᑐᖅ ᐅᑕᖅᑭᔪᓂᒃ ᑲᑎᙵᔪᓂᒃ ᐱᐅᔪᒻᒪᕆᐊᓗᖕᒥᒃ ᒪᕐᕋᕐᒥᒃ, ᐊᒻᒪ ᐊᑕᐅᑦᑎᒃᑯᑦ ᓴᖅᑭᑎᑦᑎᓪᓗᓂ ᑕᐅᑐᖅᑰᖅᑕᒥᓂᒃ ᓄᓇᕐᔪᐊᕐᒥ. ᖃᓄᐃᒻᒪᑦ ᐃᖅᑲᓇᐃᔭᙱᓚᖅ, ᓱᕋᒃᓯᒪᕙ ᐃᓄᑑᓪᓗᓂᓗ? ᐳᕋᐃᔭᓐ ᑎᓯᔪᖅ ᒫᑕᓐ ᐊᓐᓄᕌᓕᐊᕆᓪᓗᓂᐅᒃ ᑲᓇᖕᓇᖅᐸᓯᖕᒥᐅᑕᖅ'}
+      </div>
+        </div>
       </div>
       </div>
-    </div>
-  </div>
     
     
     

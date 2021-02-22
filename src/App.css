@@ -22,9 +22,22 @@ font-family: Ilisarniq !important;
   grid-template-columns: 1fr 1fr;
 }
 
+.cock-list{
+  display: flex;
+  flex-flow: column wrap;
+  transition: all .5s linear;
+}
+
 .cock-list > p:hover {
 cursor:pointer;
+font-weight: bold;
 }
+
+.top {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
 
 .fade-appear,
 .fade-enter {
