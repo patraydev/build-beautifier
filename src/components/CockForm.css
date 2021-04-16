@@ -9,6 +9,7 @@
 
 .form-container > form {
   max-height: 90vh;
+  overflow: scroll;
 }
 
 .form-row {

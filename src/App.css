@@ -3,6 +3,8 @@
   src: local('Ilisarniq'), url(./fonts/Ilisarniq-Light.otf) format('truetype');
 }
 
+/* AndaleMono? */
+
 body {
   text-align: center;
   background: #fadde1 !important;
